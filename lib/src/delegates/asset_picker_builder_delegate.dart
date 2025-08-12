@@ -1222,7 +1222,7 @@ class DefaultAssetPickerBuilderDelegate
                         ),
                       ),
                       pathEntityListBackdrop(context),
-                      pathEntityListWidget(context),
+                      if (isPermissionLimited) pathEntityListWidget(context),
                     ],
                   )
                 : loadingIndicator(context),
@@ -1264,7 +1264,7 @@ class DefaultAssetPickerBuilderDelegate
                     children: <Widget>[
                       gridLayout(context),
                       pathEntityListBackdrop(context),
-                      pathEntityListWidget(context),
+                      if (isPermissionLimited) pathEntityListWidget(context),
                     ],
                   );
                 } else {
