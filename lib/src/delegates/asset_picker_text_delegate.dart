@@ -42,16 +42,14 @@ AssetPickerTextDelegate assetPickerTextDelegateFromLocale(Locale? locale) {
     return const AssetPickerTextDelegate();
   }
 
-  final matchedByScript = scriptCode != null
-      ? matchedByLanguage.where((e) => e.scriptCode == scriptCode)
-      : null;
+  final matchedByScript =
+      scriptCode != null ? matchedByLanguage.where((e) => e.scriptCode == scriptCode) : null;
   if (matchedByScript == null || matchedByScript.isEmpty) {
     return matchedByLanguage.first;
   }
 
-  final matchedByCountry = countryCode != null
-      ? matchedByScript.where((e) => e.countryCode == countryCode)
-      : null;
+  final matchedByCountry =
+      countryCode != null ? matchedByScript.where((e) => e.countryCode == countryCode) : null;
 
   return matchedByCountry?.firstOrNull ?? matchedByScript.first;
 }
@@ -134,6 +132,8 @@ class AssetPickerTextDelegate {
   /// "Continue accessing some assets".
   String get accessLimitedAssets => '继续访问部分资源';
 
+  String get grantedPathName => 'Галерея';
+
   String get accessiblePathName => '可访问的资源';
 
   /// This is used in video asset item in the picker, in order
@@ -142,10 +142,8 @@ class AssetPickerTextDelegate {
   String durationIndicatorBuilder(Duration duration) {
     const String separator = ':';
     final String minute = duration.inMinutes.toString().padLeft(2, '0');
-    final String second = (duration - Duration(minutes: duration.inMinutes))
-        .inSeconds
-        .toString()
-        .padLeft(2, '0');
+    final String second =
+        (duration - Duration(minutes: duration.inMinutes)).inSeconds.toString().padLeft(2, '0');
     return '$minute$separator$second';
   }
 
@@ -241,12 +239,10 @@ class EnglishAssetPickerTextDelegate extends AssetPickerTextDelegate {
   String get unableToAccessAll => 'Unable to access all assets on the device';
 
   @override
-  String get viewingLimitedAssetsTip =>
-      'Only view assets and albums accessible to app.';
+  String get viewingLimitedAssetsTip => 'Only view assets and albums accessible to app.';
 
   @override
-  String get changeAccessibleLimitedAssets =>
-      'Click to update accessible assets';
+  String get changeAccessibleLimitedAssets => 'Click to update accessible assets';
 
   @override
   String get accessAllTip => 'App can only access some assets on the device. '
@@ -337,8 +333,7 @@ class HebrewAssetPickerTextDelegate extends AssetPickerTextDelegate {
   String get unableToAccessAll => 'לא ניתן לגשת לכל הקבצים במכשיר';
 
   @override
-  String get viewingLimitedAssetsTip =>
-      'הצג רק קבצים ואלבומים נגישים לאפליקציה.';
+  String get viewingLimitedAssetsTip => 'הצג רק קבצים ואלבומים נגישים לאפליקציה.';
 
   @override
   String get changeAccessibleLimitedAssets => 'אפשר גישה לקבצים נוספים';
@@ -444,8 +439,7 @@ class GermanAssetPickerTextDelegate extends AssetPickerTextDelegate {
       'Zeigen Sie nur Dateien und Alben an, auf die die App zugreifen kann';
 
   @override
-  String get accessAllTip =>
-      'Die App kann nur auf einige der Dateien auf dem Gerät zugreifen. '
+  String get accessAllTip => 'Die App kann nur auf einige der Dateien auf dem Gerät zugreifen. '
       'Öffnen Sie die Systemeinstellungen und erlauben Sie der App, '
       'auf alle Dateien auf dem Gerät zuzugreifen';
 
@@ -534,16 +528,13 @@ class RussianAssetPickerTextDelegate extends AssetPickerTextDelegate {
   String get unableToAccessAll => 'Не все файлы доступны на устройстве';
 
   @override
-  String get viewingLimitedAssetsTip =>
-      'Показать только файлы, которые доступны приложению.';
+  String get viewingLimitedAssetsTip => 'Показать только файлы, которые доступны приложению.';
 
   @override
-  String get changeAccessibleLimitedAssets =>
-      'Разрешить доступ к дополнительным файлам';
+  String get changeAccessibleLimitedAssets => 'Разрешить доступ к дополнительным файлам';
 
   @override
-  String get accessAllTip =>
-      'У приложения доступ только к некоторым файлам на устройстве. '
+  String get accessAllTip => 'У приложения доступ только к некоторым файлам на устройстве. '
       'Откройте настройки системы и разрешите приложению доступ ко всем файлам на устройстве.';
 
   @override
@@ -553,7 +544,10 @@ class RussianAssetPickerTextDelegate extends AssetPickerTextDelegate {
   String get accessLimitedAssets => 'Продолжить с ограниченным доступом';
 
   @override
-  String get accessiblePathName => 'Доступные файлы';
+  String get accessiblePathName => 'Доступные фото';
+
+  @override
+  String get grantedPathName => 'Галерея';
 
   @override
   String get sTypeAudioLabel => 'Аудио';
@@ -724,8 +718,7 @@ class ArabicAssetPickerTextDelegate extends AssetPickerTextDelegate {
   String get unSupportedAssetType => 'نوع HEIC غير مدعوم';
 
   @override
-  String get unableToAccessAll =>
-      'لا يمكن الوصول إلى جميع الملفات الموجودة على الجهاز';
+  String get unableToAccessAll => 'لا يمكن الوصول إلى جميع الملفات الموجودة على الجهاز';
 
   @override
   String get viewingLimitedAssetsTip =>
@@ -735,8 +728,7 @@ class ArabicAssetPickerTextDelegate extends AssetPickerTextDelegate {
   String get changeAccessibleLimitedAssets => 'السماح بالوصول إلى ملفات إضافية';
 
   @override
-  String get accessAllTip =>
-      'يمكن للتطبيق الوصول فقط إلى بعض الملفات الموجودة على الجهاز. '
+  String get accessAllTip => 'يمكن للتطبيق الوصول فقط إلى بعض الملفات الموجودة على الجهاز. '
       'افتح إعدادات النظام واسمح للتطبيق بالوصول إلى جميع الملفات الموجودة على الجهاز.';
 
   @override
@@ -821,20 +813,16 @@ class FrenchAssetPickerTextDelegate extends AssetPickerTextDelegate {
   String get unSupportedAssetType => 'Type de fichier non supporté';
 
   @override
-  String get unableToAccessAll =>
-      "Impossible d'accéder aux médias de votre appareil";
+  String get unableToAccessAll => "Impossible d'accéder aux médias de votre appareil";
 
   @override
-  String get viewingLimitedAssetsTip =>
-      'Affichage des médias et albums limité ';
+  String get viewingLimitedAssetsTip => 'Affichage des médias et albums limité ';
 
   @override
-  String get changeAccessibleLimitedAssets =>
-      "Modifier l'accès limité aux médias";
+  String get changeAccessibleLimitedAssets => "Modifier l'accès limité aux médias";
 
   @override
-  String get accessAllTip =>
-      "L'application ne peut accéder qu'à certains medias. "
+  String get accessAllTip => "L'application ne peut accéder qu'à certains medias. "
       "Allez dans les paramètres système et autoriser l'application "
       "à accéder à tous les medias sur l'appareil";
 
@@ -920,15 +908,13 @@ class VietnameseAssetPickerTextDelegate extends AssetPickerTextDelegate {
   String get unSupportedAssetType => 'Loại tệp không được hỗ trợ';
 
   @override
-  String get unableToAccessAll =>
-      'Không thể truy cập vào các tệp trên thiết bị của bạn';
+  String get unableToAccessAll => 'Không thể truy cập vào các tệp trên thiết bị của bạn';
 
   @override
   String get viewingLimitedAssetsTip => 'Đang xem các tệp và thư mục hạn chế';
 
   @override
-  String get changeAccessibleLimitedAssets =>
-      'Thay đổi quyền truy cập tệp hạn chế';
+  String get changeAccessibleLimitedAssets => 'Thay đổi quyền truy cập tệp hạn chế';
 
   @override
   String get accessAllTip => 'Ứng dụng chỉ có thể truy cập một số tệp. '
@@ -1023,8 +1009,7 @@ class TurkishAssetPickerTextDelegate extends AssetPickerTextDelegate {
       'Yalnızca uygulamanın erişebileceği dosya ve albümleri göster';
 
   @override
-  String get accessAllTip =>
-      'Uygulama, cihazdaki yalnızca bazı dosyalara erişebilir. '
+  String get accessAllTip => 'Uygulama, cihazdaki yalnızca bazı dosyalara erişebilir. '
       'Sistem ayarlarını açın ve uygulamanın şunları yapmasına izin verin '
       'Cihazdaki tüm dosyalara erişin';
 
@@ -1167,8 +1152,7 @@ class KoreanAssetPickerTextDelegate extends AssetPickerTextDelegate {
 
 /// [AssetPickerTextDelegate] implements with Traditional Chinese.
 /// 繁體中文文字實現
-class TraditionalChineseAssetPickerTextDelegate
-    extends AssetPickerTextDelegate {
+class TraditionalChineseAssetPickerTextDelegate extends AssetPickerTextDelegate {
   const TraditionalChineseAssetPickerTextDelegate();
 
   @override
@@ -1307,16 +1291,13 @@ class PersianAssetPickerTextDelegate extends AssetPickerTextDelegate {
   String get unableToAccessAll => 'دسترسی به همه رسانه‌های دستگاه ممکن نیست.';
 
   @override
-  String get viewingLimitedAssetsTip =>
-      'فقط رسانه‌ها و آلبوم‌های قابل دسترسی را می‌توانید ببینید.';
+  String get viewingLimitedAssetsTip => 'فقط رسانه‌ها و آلبوم‌های قابل دسترسی را می‌توانید ببینید.';
 
   @override
-  String get changeAccessibleLimitedAssets =>
-      'برای به‌روزرسانی رسانه‌های قابل دسترسی کلیک کنید.';
+  String get changeAccessibleLimitedAssets => 'برای به‌روزرسانی رسانه‌های قابل دسترسی کلیک کنید.';
 
   @override
-  String get accessAllTip =>
-      'برنامه فقط به بخشی از رسانه‌های دستگاه دسترسی دارد. '
+  String get accessAllTip => 'برنامه فقط به بخشی از رسانه‌های دستگاه دسترسی دارد. '
       'به تنظیمات سیستم بروید و اجازه دسترسی برنامه به همه رسانه‌های دستگاه را بدهید.';
 
   @override

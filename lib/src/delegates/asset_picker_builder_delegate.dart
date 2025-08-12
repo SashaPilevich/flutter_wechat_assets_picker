@@ -608,10 +608,8 @@ abstract class AssetPickerBuilderDelegate<Asset, Path> {
         Feedback.forTap(context);
         PhotoManager.openSetting();
       },
-      child: Container(
+      child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-        height: permissionLimitedBarHeight,
-        color: theme.primaryColor.withOpacity(isAppleOS(context) ? 0.90 : 1),
         child: Row(
           children: <Widget>[
             const SizedBox(width: 5),
@@ -2101,10 +2099,10 @@ class DefaultAssetPickerBuilderDelegate
                       context,
                       isPermissionLimited && path.isAll
                           ? textDelegate.accessiblePathName
-                          : pathNameBuilder?.call(path) ?? path.name,
+                          : pathNameBuilder?.call(path) ?? textDelegate.grantedPathName,
                       isPermissionLimited && path.isAll
                           ? semanticsTextDelegate.accessiblePathName
-                          : pathNameBuilder?.call(path) ?? path.name,
+                          : pathNameBuilder?.call(path) ?? textDelegate.grantedPathName,
                     ),
                   w!,
                 ],
@@ -2120,16 +2118,12 @@ class DefaultAssetPickerBuilderDelegate
                 child: ValueListenableBuilder<bool>(
                   valueListenable: isSwitchingPath,
                   builder: (_, bool isSwitchingPath, Widget? w) {
-                    return Transform.rotate(
-                      angle: isSwitchingPath ? math.pi : 0,
-                      child: w,
+                    return Icon(
+                      isSwitchingPath ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,
+                      size: 20,
+                      color: theme.colorScheme.primary,
                     );
                   },
-                  child: Icon(
-                    Icons.keyboard_arrow_down,
-                    size: 20,
-                    color: theme.colorScheme.primary,
-                  ),
                 ),
               ),
             ),
