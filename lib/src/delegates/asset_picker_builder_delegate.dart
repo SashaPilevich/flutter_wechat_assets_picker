@@ -1245,8 +1245,8 @@ class DefaultAssetPickerBuilderDelegate
                 Positioned.fill(child: assetsGridBuilder(context)),
                 Positioned.fill(
                   top: null,
-                  child: bottomActionBar(context),
                   bottom: 100,
+                  child: bottomActionBar(context),
                 ),
               ],
             ),
@@ -2453,9 +2453,9 @@ class DefaultAssetPickerBuilderDelegate
   Widget accessLimitedBottomTip(BuildContext context) {
     final double bottomPadding;
     if (hasBottomActions) {
-      bottomPadding = 0;
+      bottomPadding = 100;
     } else {
-      bottomPadding = MediaQuery.paddingOf(context).bottom;
+      bottomPadding = 100;
     }
     return GestureDetector(
       onTap: () {
