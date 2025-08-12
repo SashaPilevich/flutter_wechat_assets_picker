@@ -2099,10 +2099,10 @@ class DefaultAssetPickerBuilderDelegate
                       context,
                       isPermissionLimited && path.isAll
                           ? textDelegate.accessiblePathName
-                          : pathNameBuilder?.call(path) ?? textDelegate.grantedPathName,
+                          : textDelegate.grantedPathName,
                       isPermissionLimited && path.isAll
                           ? semanticsTextDelegate.accessiblePathName
-                          : pathNameBuilder?.call(path) ?? textDelegate.grantedPathName,
+                          : textDelegate.grantedPathName,
                     ),
                   w!,
                 ],
