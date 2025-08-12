@@ -49,6 +49,7 @@ class PathWrapper<Path> {
     int? assetCount,
     typed_data.Uint8List? thumbnailData,
   }) {
+    print(path);
     return PathWrapper<Path>(
       path: path,
       assetCount: assetCount ?? this.assetCount,
@@ -71,8 +72,7 @@ class PathWrapper<Path> {
   }
 
   @override
-  int get hashCode =>
-      path.hashCode ^ assetCount.hashCode ^ thumbnailData.hashCode;
+  int get hashCode => path.hashCode ^ assetCount.hashCode ^ thumbnailData.hashCode;
 
   @override
   String toString() {
