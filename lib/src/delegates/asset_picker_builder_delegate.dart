@@ -2014,7 +2014,7 @@ class DefaultAssetPickerBuilderDelegate
                       )
                       .toList();
                   return ListView.separated(
-                    padding: const EdgeInsetsDirectional.only(top: 1),
+                    padding: const EdgeInsetsDirectional.symmetric(horizontal: 12).copyWith(top: 1),
                     shrinkWrap: true,
                     itemCount: filtered.length,
                     itemBuilder: (BuildContext c, int i) => pathEntityWidget(
@@ -2157,11 +2157,12 @@ class DefaultAssetPickerBuilderDelegate
     }
 
     final String pathName = pathNameBuilder?.call(pathEntity) ?? pathEntity.name;
-    final String name =
-        isPermissionLimited && pathEntity.isAll ? textDelegate.accessiblePathName : pathName;
+    final String name = isPermissionLimited && pathEntity.isAll
+        ? textDelegate.accessiblePathName
+        : textDelegate.grantedPathName;
     final String semanticsName = isPermissionLimited && pathEntity.isAll
         ? semanticsTextDelegate.accessiblePathName
-        : pathName;
+        : semanticsTextDelegate.grantedPathName;
     final String? semanticsCount = wrapper.assetCount?.toString();
     final StringBuffer labelBuffer = StringBuffer(
       '$semanticsName, ${semanticsTextDelegate.sUnitAssetCountLabel}',
