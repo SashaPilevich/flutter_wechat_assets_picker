@@ -612,11 +612,6 @@ abstract class AssetPickerBuilderDelegate<Asset, Path> {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 56),
         child: Row(
           children: <Widget>[
-            // const SizedBox(width: 5),
-            // Icon(
-            //   Icons.warning,
-            //   color: Colors.orange[400]!.withOpacity(.8),
-            // ),
             const SizedBox(width: 15),
             Expanded(
               child: ScaleText(
@@ -2466,11 +2461,6 @@ class DefaultAssetPickerBuilderDelegate
         padding: const EdgeInsets.symmetric(horizontal: 12).add(EdgeInsets.only(bottom: 56)),
         child: Row(
           children: <Widget>[
-            // const SizedBox(width: 5),
-            // Icon(
-            //   Icons.warning,
-            //   color: Colors.orange[400]!.withOpacity(.8),
-            // ),
             const SizedBox(width: 15),
             Expanded(
               child: ScaleText(
