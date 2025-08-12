@@ -1192,7 +1192,7 @@ class DefaultAssetPickerBuilderDelegate
     final AssetPickerAppBar appBar = AssetPickerAppBar(
       title: Semantics(
         onTapHint: semanticsTextDelegate.sActionSwitchPathLabel,
-        child: pathEntitySelector(context),
+        child: isPermissionLimited ? pathEntitySelector(context) : null,
       ),
       leading: backButton(context),
       blurRadius: isAppleOS(context) ? appleOSBlurRadius : 0,
