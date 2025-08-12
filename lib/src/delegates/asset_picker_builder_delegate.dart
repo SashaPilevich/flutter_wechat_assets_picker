@@ -2459,8 +2459,7 @@ class DefaultAssetPickerBuilderDelegate
         PhotoManager.openSetting();
       },
       child: Padding(
-        padding:
-            const EdgeInsets.symmetric(horizontal: 12).add(EdgeInsets.only(bottom: bottomPadding)),
+        padding: const EdgeInsets.symmetric(horizontal: 12).add(EdgeInsets.only(bottom: 56)),
         child: Row(
           children: <Widget>[
             const SizedBox(width: 5),
