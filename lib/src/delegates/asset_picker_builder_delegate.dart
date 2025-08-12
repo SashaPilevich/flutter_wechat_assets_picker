@@ -1221,8 +1221,8 @@ class DefaultAssetPickerBuilderDelegate
                           ],
                         ),
                       ),
-                      pathEntityListBackdrop(context),
-                      if (isPermissionLimited) pathEntityListWidget(context),
+                      // pathEntityListBackdrop(context),
+                      // if (isPermissionLimited) pathEntityListWidget(context),
                     ],
                   )
                 : loadingIndicator(context),
