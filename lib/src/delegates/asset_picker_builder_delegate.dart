@@ -1243,7 +1243,11 @@ class DefaultAssetPickerBuilderDelegate
             child: Stack(
               children: <Widget>[
                 Positioned.fill(child: assetsGridBuilder(context)),
-                Positioned.fill(top: null, child: bottomActionBar(context)),
+                Positioned.fill(
+                  top: null,
+                  child: bottomActionBar(context),
+                  bottom: 100,
+                ),
               ],
             ),
           ),
