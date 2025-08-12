@@ -1187,7 +1187,7 @@ class DefaultAssetPickerBuilderDelegate
     final AssetPickerAppBar appBar = AssetPickerAppBar(
       title: Semantics(
         onTapHint: semanticsTextDelegate.sActionSwitchPathLabel,
-        child: isPermissionLimited ? pathEntitySelector(context) : null,
+        child: pathEntitySelector(context),
       ),
       leading: backButton(context),
       blurRadius: isAppleOS(context) ? appleOSBlurRadius : 0,
@@ -1216,8 +1216,8 @@ class DefaultAssetPickerBuilderDelegate
                           ],
                         ),
                       ),
-                      // pathEntityListBackdrop(context),
-                      // if (isPermissionLimited) pathEntityListWidget(context),
+                      pathEntityListBackdrop(context),
+                      pathEntityListWidget(context),
                     ],
                   )
                 : loadingIndicator(context),
@@ -1240,7 +1240,7 @@ class DefaultAssetPickerBuilderDelegate
                 Positioned.fill(child: assetsGridBuilder(context)),
                 Positioned.fill(
                   top: null,
-                  bottom: 100,
+                  bottom: 50,
                   child: bottomActionBar(context),
                 ),
               ],
@@ -1263,7 +1263,7 @@ class DefaultAssetPickerBuilderDelegate
                     children: <Widget>[
                       gridLayout(context),
                       pathEntityListBackdrop(context),
-                      if (isPermissionLimited) pathEntityListWidget(context),
+                      pathEntityListWidget(context),
                     ],
                   );
                 } else {
@@ -2013,7 +2013,7 @@ class DefaultAssetPickerBuilderDelegate
                       )
                       .toList();
                   return ListView.separated(
-                    padding: const EdgeInsetsDirectional.symmetric(horizontal: 12).copyWith(top: 1),
+                    padding: const EdgeInsetsDirectional.only(top: 1),
                     shrinkWrap: true,
                     itemCount: filtered.length,
                     itemBuilder: (BuildContext c, int i) => pathEntityWidget(
@@ -2109,21 +2109,15 @@ class DefaultAssetPickerBuilderDelegate
             },
             child: Padding(
               padding: const EdgeInsetsDirectional.only(start: 5),
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: theme.iconTheme.color!.withOpacity(0.5),
-                ),
-                child: ValueListenableBuilder<bool>(
-                  valueListenable: isSwitchingPath,
-                  builder: (_, bool isSwitchingPath, Widget? w) {
-                    return Icon(
-                      isSwitchingPath ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,
-                      size: 20,
-                      color: theme.colorScheme.primary,
-                    );
-                  },
-                ),
+              child: ValueListenableBuilder<bool>(
+                valueListenable: isSwitchingPath,
+                builder: (_, bool isSwitchingPath, Widget? w) {
+                  return Icon(
+                    isSwitchingPath ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                    size: 20,
+                    color: Colors.black,
+                  );
+                },
               ),
             ),
           ),
