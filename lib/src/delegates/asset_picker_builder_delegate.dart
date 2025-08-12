@@ -1240,7 +1240,7 @@ class DefaultAssetPickerBuilderDelegate
                 Positioned.fill(child: assetsGridBuilder(context)),
                 Positioned.fill(
                   top: null,
-                  bottom: 50,
+                  bottom: 20,
                   child: bottomActionBar(context),
                 ),
               ],
