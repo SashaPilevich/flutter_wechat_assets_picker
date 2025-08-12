@@ -2456,7 +2456,6 @@ class DefaultAssetPickerBuilderDelegate
             const EdgeInsets.symmetric(horizontal: 12).add(EdgeInsets.only(bottom: bottomPadding)),
         child: Row(
           children: <Widget>[
-            const SizedBox(width: 15),
             Expanded(
               child: ScaleText(
                 textDelegate.accessAllTip,
