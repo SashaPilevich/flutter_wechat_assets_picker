@@ -609,14 +609,14 @@ abstract class AssetPickerBuilderDelegate<Asset, Path> {
         PhotoManager.openSetting();
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 56),
         child: Row(
           children: <Widget>[
-            const SizedBox(width: 5),
-            Icon(
-              Icons.warning,
-              color: Colors.orange[400]!.withOpacity(.8),
-            ),
+            // const SizedBox(width: 5),
+            // Icon(
+            //   Icons.warning,
+            //   color: Colors.orange[400]!.withOpacity(.8),
+            // ),
             const SizedBox(width: 15),
             Expanded(
               child: ScaleText(
