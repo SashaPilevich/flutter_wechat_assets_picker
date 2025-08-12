@@ -2448,9 +2448,9 @@ class DefaultAssetPickerBuilderDelegate
   Widget accessLimitedBottomTip(BuildContext context) {
     final double bottomPadding;
     if (hasBottomActions) {
-      bottomPadding = 100;
+      bottomPadding = 0;
     } else {
-      bottomPadding = 100;
+      bottomPadding = MediaQuery.of(context).padding.bottom;
     }
     return GestureDetector(
       onTap: () {
