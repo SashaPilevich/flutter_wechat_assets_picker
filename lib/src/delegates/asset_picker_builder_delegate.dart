@@ -1192,7 +1192,7 @@ class DefaultAssetPickerBuilderDelegate
     final AssetPickerAppBar appBar = AssetPickerAppBar(
       title: Semantics(
         onTapHint: semanticsTextDelegate.sActionSwitchPathLabel,
-        //child: isPermissionLimited ? pathEntitySelector(context) : null,
+        child: isPermissionLimited ? pathEntitySelector(context) : null,
       ),
       leading: backButton(context),
       blurRadius: isAppleOS(context) ? appleOSBlurRadius : 0,
@@ -2458,11 +2458,9 @@ class DefaultAssetPickerBuilderDelegate
         Feedback.forTap(context);
         PhotoManager.openSetting();
       },
-      child: Container(
+      child: Padding(
         padding:
-            const EdgeInsets.symmetric(horizontal: 10).add(EdgeInsets.only(bottom: bottomPadding)),
-        height: permissionLimitedBarHeight + bottomPadding,
-        color: theme.primaryColor.withOpacity(isAppleOS(context) ? 0.90 : 1),
+            const EdgeInsets.symmetric(horizontal: 12).add(EdgeInsets.only(bottom: bottomPadding)),
         child: Row(
           children: <Widget>[
             const SizedBox(width: 5),
